@@ -23,33 +23,33 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PostComponent,
-    NotfoundComponent,
-    BlogComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    AboutComponent,
-    ContactComponent,
-    TagsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    RouterModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
-  providers: [
-    PostService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PostComponent,
+        NotfoundComponent,
+        BlogComponent,
+        HomeComponent,
+        HeaderComponent,
+        FooterComponent,
+        AboutComponent,
+        ContactComponent,
+        TagsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        RouterModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule
+    ],
+    providers: [
+        PostService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

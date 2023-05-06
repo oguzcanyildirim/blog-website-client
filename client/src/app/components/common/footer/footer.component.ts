@@ -4,35 +4,35 @@ import socials from '../../../../assets/site.json';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
 
-  currYear: Number = 0;
-  author: String = "";
-  nav: any = {};
-  socials: any = {};
-  pathName: String = "";
+    currYear = 0;
+    author = '';
+    nav: any = {};
+    socials: any = {};
+    pathName = '';
 
-  constructor(private router: Router) {}
+    constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.pathName = window.location.pathname;
-    this.currYear = this.getCurrentYear();
-    this.author = siteData.site.author;
-    this.socials = socials;
-    this.nav = siteData.site.nav;
-  }
+    ngOnInit(): void {
+        this.pathName = window.location.pathname;
+        this.currYear = this.getCurrentYear();
+        this.author = siteData.site.author;
+        this.socials = socials;
+        this.nav = siteData.site.nav;
+    }
 
-  getCurrentYear() {
-    const year = new Date().getFullYear();
-    return year;
-  }
+    getCurrentYear() {
+        const year = new Date().getFullYear();
+        return year;
+    }
 
-  backToTop() {
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-  }
+    backToTop() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
 
 }

@@ -9,17 +9,17 @@ import { ContactComponent } from './components/contact/contact.component';
 import { TagsComponent } from './components/tags/tags.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "blog", component: BlogComponent },
-  { path: "blog/:post", component: PostComponent },
-  { path: "blog/topics/:tag", component: TagsComponent },
-  { path: "about", component: AboutComponent },
-  { path: "contact", component: ContactComponent },
-  { path: "**", component: NotfoundComponent }
+    { path: '', component: HomeComponent },
+    { path: 'blog', component: BlogComponent },
+    { path: 'blog/:post', component: PostComponent },
+    { path: 'blog/topics/:tag', component: TagsComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
