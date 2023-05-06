@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "46da6355-fb20-44c0-8fcb-d74a7dc0fa91"
+    "analytics": false
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "blog-template": {
+    "blog-website": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "blog-template:build"
+            "browserTarget": "blog-website:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "blog-template:build:production"
+              "browserTarget": "blog-website:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blog-template:build"
+            "browserTarget": "blog-website:build"
           }
         },
         "test": {
@@ -119,16 +119,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "blog-template:serve"
+            "devServerTarget": "blog-website:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "blog-template:serve:production"
+              "devServerTarget": "blog-website:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "blog-template"
+  "defaultProject": "blog-website"
 }
