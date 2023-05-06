@@ -1,0 +1,70 @@
+.wrapper {
+    margin: 2rem auto 3rem auto;
+    padding: 1rem;
+    max-width: 80ch;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--link-accessible) !important;
+}
+
+article h1 {
+    font-size: 2.5rem;
+    margin-top: .5rem;
+    line-height: 1.4;
+}
+
+article .date {
+    margin-top: .5rem;
+}
+
+article img {
+    object-fit: cover;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.tag {
+    margin: 0 .2rem;
+    text-decoration: none;
+    color: var(--link-accessible);
+}
+
+.tag:first-of-type {
+    margin-left: .2rem;
+}
+
+.tag:hover {
+    text-decoration: underline;
+}
+
+.post-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.post-btns button {
+    border: .1rem solid #282d33;
+    padding: .5rem 1rem;
+    background-color: inherit;
+}
+
+.post-btns button:hover {
+    cursor: pointer;
+}
+
+.post-btns:not(button:hover),
+.post-btns:not(button:focus) {
+    background: inherit;
+}
+
+@media screen and (max-width: 550px) {
+    .wrapper {
+        margin: .25rem auto 1.5rem auto;
+    }
+}
