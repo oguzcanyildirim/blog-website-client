@@ -7,7 +7,7 @@ A blog site with Angular and Node.js. Angular Material was used in frontend and 
 To get the project running locally on your machine:
 
 * Clone or fork this repository
-* Clone `git clone git@github.com:your-username/angular-node-blog-template.git`
+* Clone `git clone git@github.com:your-username/blog-website.git`
 * Install dependencies npm install (in both client and server directories)
 * Serve locally `npm run` in server (you can also optionally run the angular client with `ng serve`)
 
