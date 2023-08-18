@@ -2,20 +2,20 @@ import {environment} from '../environments/environment';
 
 export const endpoints = {
     'prod': {
-        'post': `${environment.backendUrl}/functions/post`,
-        'postsMetadata': `${environment.backendUrl}/functions/metadata`,
-        'recentPosts': `${environment.backendUrl}/functions/recent`,
-        'postsByTag': `${environment.backendUrl}/functions/tagged`
+        'post': `${environment.apiBaseUrl}/functions/post`,
+        'postsMetadata': `${environment.apiBaseUrl}/functions/metadata`,
+        'recentPosts': `${environment.apiBaseUrl}/functions/recent`,
+        'postsByTag': `${environment.apiBaseUrl}/functions/tagged`
     },
     'lambda-dev': {
-        'post': `${environment.backendUrl}/functions/app/blog/`,
-        'recentPosts': `${environment.backendUrl}/functions/app/recent`,
-        'postsMetadata': `${environment.backendUrl}/functions/app/blog`,
-        'postsByTag': `${environment.backendUrl}/functions/app/blog/topics`
+        'post': `${environment.apiBaseUrl}/functions/app/blog/`,
+        'recentPosts': `${environment.apiBaseUrl}/functions/app/recent`,
+        'postsMetadata': `${environment.apiBaseUrl}/functions/app/blog`,
+        'postsByTag': `${environment.apiBaseUrl}/functions/app/blog/topics`
     },
     'express-dev': {
-        'post': `${environment.backendUrl}/blog/`,
-        'recentPosts': `${environment.backendUrl}/recent`,
-        'postsByTag': `${environment.backendUrl}/blog/topics`
+        'post': `${environment.apiBaseUrl}/blog/`,
+        'recentPosts': `${environment.apiBaseUrl}/recent`,
+        'postsByTag': `${environment.apiBaseUrl}/blog/topics`
     }
 };

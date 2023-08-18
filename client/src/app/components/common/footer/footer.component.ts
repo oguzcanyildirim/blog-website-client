@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import siteData from '../../../../assets/site.json';
 import socials from '../../../../assets/site.json';
 import { Router } from '@angular/router';
+import { navLinks } from '../constants';
+import { NavLinks } from '../interfaces';
 
 @Component({
     selector: 'app-footer',
@@ -12,7 +14,7 @@ export class FooterComponent implements OnInit {
 
     currYear = 0;
     author = '';
-    nav: any = {};
+    nav: NavLinks = navLinks;
     socials: any = {};
     pathName = '';
 

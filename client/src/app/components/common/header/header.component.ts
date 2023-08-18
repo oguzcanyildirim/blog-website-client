@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { navLinks } from '../constants';
+import { NavLinks } from '../interfaces';
 
 @Component({
     selector: 'app-header',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+    public nav: NavLinks = navLinks;
     constructor() { }
 
     ngOnInit(): void {

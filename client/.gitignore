@@ -8,6 +8,7 @@
 /bazel-out
 /.angular
 /client/dist/*
+/server/dist/*
 
 # dependencies
 /node_modules

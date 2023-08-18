@@ -16,10 +16,10 @@ export class ContactComponent implements OnInit {
     cMessage: any;
     myEmail: string = siteData.site.email;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit(): void {
-        this.contactForm = this.fb.group({
+        this.contactForm = this.formBuilder.group({
             name: new FormControl('', Validators.required),
             email: new FormControl('', [Validators.required, Validators.email]),
             message: new FormControl('', Validators.required)

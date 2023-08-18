@@ -1,12 +1,21 @@
 <div class="wrapper">
-    <h1>Blog</h1>
-    <section>
-        <div class="article" *ngIf="articles.length !== 0">
-            <mat-card *ngFor="let article of articles" role="group">
-                <mat-card-title><a routerLink="/blog/{{ article.slug }}">{{ article.title }}</a></mat-card-title>
-                <mat-card-subtitle class="date">Published on <time>{{ article.date | date }}</time> &bull; tagged with <a class="tag" *ngFor="let tag of article.tags" routerLink="/blog/topics/{{ tag }}">#{{ tag }}</a></mat-card-subtitle>
-                <mat-card-content>{{ article.preview }}</mat-card-content>
-            </mat-card>
+  <h1>Blog</h1>
+  <section>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4" *ngFor="let article of articles">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><a routerLink="/blog/{{ article.slug }}">{{ article.title }}</a></h5>
+            <p class="card-text">{{ article.preview }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">
+              Published on <time>{{ article.date | date }}</time> &bull; Tagged with:
+              <a class="tag" *ngFor="let tag of article.tags" routerLink="/blog/topics/{{ tag }}">#{{ tag }}</a>
+            </small>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
