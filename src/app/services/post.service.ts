@@ -12,7 +12,12 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  // Fetch a single post by slug
+  /**
+   * Fetches a single post by its slug.
+   *
+   * @param {string} slug The slug of the post to fetch
+   * @returns {Observable<any>} An Observable emitting the fetched post data
+   */
   public getPost(slug: string): Observable<any> {
     return this.http.get(`${environment.apiBaseUrl}/post?name=${slug}`).pipe(
       catchError((error) => {
@@ -22,7 +27,11 @@ export class PostService {
     );
   }
 
-  // Fetch recent posts
+  /**
+   * Fetches recent posts.
+   *
+   * @returns {Observable<any>} An Observable emitting an array of recent posts
+   */
   public getRecentPosts(): Observable<any> {
     return this.http.get(`${environment.apiBaseUrl}/recentPosts`).pipe(
       catchError((error) => {
@@ -32,7 +41,11 @@ export class PostService {
     );
   }
 
-  // Fetch all posts' metadata
+  /**
+   * Fetches metadata for all posts.
+   *
+   * @returns {Observable<any>} An Observable emitting metadata for all posts
+   */
   public getAllPosts(): Observable<any> {
     return this.http.get(`${environment.apiBaseUrl}/postsMetadata`).pipe(
       catchError((error) => {
@@ -42,7 +55,12 @@ export class PostService {
     );
   }
 
-  // Fetch posts by tag
+  /**
+   * Fetches posts by a specific tag.
+   *
+   * @param {string} tag The tag to filter posts by
+   * @returns {Observable<any>} An Observable emitting an array of posts with the specified tag
+   */
   public getPostsByTag(tag: string): Observable<any> {
     return this.http.get(`${environment.apiBaseUrl}/postsByTag?tag=${tag}`).pipe(
       catchError((error) => {
@@ -52,7 +70,12 @@ export class PostService {
     );
   }
 
-  // Create a slug from a string
+  /**
+   * Creates a URL-friendly slug from a string.
+   *
+   * @param {string} str The input string to slugify
+   * @returns {string} The slugified string
+   */
   public slugify(str: string): string {
     const regex = new RegExp(/\W+/, 'gm');
     const slug = str.replace(regex, ' ').toLowerCase().split(' ').join('-');
