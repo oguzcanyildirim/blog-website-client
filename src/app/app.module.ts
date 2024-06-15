@@ -33,7 +33,7 @@ import { MatInputModule } from '@angular/material/input';
         FooterComponent,
         AboutComponent,
         ContactComponent,
-        TagsComponent
+        TagsComponent,
     ],
     imports: [
         BrowserModule,
@@ -45,10 +45,10 @@ import { MatInputModule } from '@angular/material/input';
         MatSliderModule,
         MatCardModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
     ],
     providers: [
-        PostService
+        PostService,
     ],
     bootstrap: [AppComponent]
 })

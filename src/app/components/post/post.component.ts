@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
     ngOnInit(): void {
         this.postService.getAllPosts().subscribe((response: any) => {
             this.allPosts = response;
-            response.metadata.map((r: any) => {
+            response.map((r: any) => {
                 r.slug = this.postService.slugify(r.title);
             });
             this.pos = this.getPostIndex(this.allPosts);
@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
     }
 
     getPostIndex(allPosts: any) {
-        allPosts.metadata.map((d: any) => {
+        allPosts.map((d: any) => {
             d.slug = this.postService.slugify(d.title);
         });
 
@@ -36,8 +36,8 @@ export class PostComponent implements OnInit {
 
         this.postService.getPost(slug).subscribe((response: any) => {
             this.postData = response;
-            this.tags = response.metadata.tags;
-            this.pos = allPosts.metadata.map((p: any) => p.slug).indexOf(response.metadata[0].slug);
+            this.tags = response.tags;
+            this.pos = allPosts.map((p: any) => p.slug).indexOf(response[0].slug);
         });
 
         return this.pos;
@@ -45,10 +45,10 @@ export class PostComponent implements OnInit {
 
     nextPost(posts: any) {
         const index = this.pos;
-        const p = index + 1 >= posts.metadata.length ? posts.metadata[0] : posts.metadata[index + 1];
+        const p = index + 1 >= posts.length ? posts[0] : posts[index + 1];
         this.postService.getPost(p.slug).subscribe(response => {
             this.postData = response;
-            if (this.pos >= posts.metadata.length - 1) {
+            if (this.pos >= posts.length - 1) {
                 this.pos = 0;
             } else {
                 this.pos += 1;
@@ -59,11 +59,11 @@ export class PostComponent implements OnInit {
 
     prevPost(posts: any) {
         const index = this.pos;
-        const p = index - 1 < 0 ? posts.metadata[posts.metadata.length - 1] : posts.metadata[index - 1];
+        const p = index - 1 < 0 ? posts[posts.length - 1] : posts[index - 1];
         this.postService.getPost(p.slug).subscribe(response => {
             this.postData = response;
             if (this.pos <= 0) {
-                this.pos = posts.metadata.length - 1;
+                this.pos = posts.length - 1;
             } else {
                 this.pos -= 1;
             }

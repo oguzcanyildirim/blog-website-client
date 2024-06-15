@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { Post } from '../entities/post';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,8 @@ export class PostService {
    *
    * @returns {Observable<any>} An Observable emitting an array of recent posts
    */
-  public getRecentPosts(): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/recentPosts`).pipe(
+  public getRecentPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${environment.apiBaseUrl}/recentPosts`).pipe(
       catchError((error) => {
         console.error('Error fetching recent posts:', error);
         return throwError('Failed to fetch recent posts. Please try again later.');
