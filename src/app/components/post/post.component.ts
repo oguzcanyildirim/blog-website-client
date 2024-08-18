@@ -37,7 +37,7 @@ export class PostComponent implements OnInit {
         this.postService.getPost(slug).subscribe((response: any) => {
             this.postData = response;
             this.tags = response.tags;
-            this.pos = allPosts.map((p: any) => p.slug).indexOf(response[0].slug);
+            this.pos = allPosts.map((p: any) => p.slug).indexOf(response.slug);
         });
 
         return this.pos;

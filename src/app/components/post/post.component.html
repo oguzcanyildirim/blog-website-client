@@ -1,12 +1,12 @@
 <div class="wrapper">
-    <article *ngIf="postData !== undefined && postData.contents !== undefined">
-        <h1>{{ postData[0].title }}</h1>
-        <p class="date">Published on <time>{{ postData[0].date | date }}</time> &bull; tagged with <a class="tag" *ngFor="let tag of postData[0].tags" routerLink="/blog/topics/{{ tag }}">#{{ tag }}</a></p>
-        <img *ngIf="postData[0].image !== undefined" src="{{ postData[0].image }}" alt="Some alt text">
-        <p>{{ postData[0].preview }}</p>
-        <div [innerHTML]="postData.contents"></div>
+    <article *ngIf="postData && postData.content">
+        <h1>{{ postData.title }}</h1>
+        <p class="date">Published on <time>{{ postData.date | date }}</time> &bull; tagged with <a class="tag" *ngFor="let tag of postData.tags" routerLink="/blog/topics/{{ tag }}">#{{ tag }}</a></p>
+        <img *ngIf="postData.thumbnail" src="{{ postData.thumbnail }}" alt="Some alt text">
+        <p>{{ postData.preview }}</p>
+        <div [innerHTML]="postData.content"></div>
     </article>
-    <div class="post-btns" *ngIf="postData !== undefined">
+    <div class="post-btns" *ngIf="postData">
         <button (click)="prevPost(allPosts)">Previous</button>
         <button (click)="nextPost(allPosts)">Next</button>
     </div>
