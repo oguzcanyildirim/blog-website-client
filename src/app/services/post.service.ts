@@ -20,7 +20,7 @@ export class PostService {
    * @returns {Observable<any>} An Observable emitting the fetched post data
    */
   public getPost(slug: string): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/post?name=${slug}`).pipe(
+    return this.http.get(`${environment.apiBaseUrl}/posts/by-slug/${slug}`).pipe(
       catchError((error) => {
         console.error('Error fetching post:', error);
         return throwError('Failed to fetch post. Please try again later.');
@@ -34,7 +34,7 @@ export class PostService {
    * @returns {Observable<any>} An Observable emitting an array of recent posts
    */
   public getRecentPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${environment.apiBaseUrl}/recentPosts`).pipe(
+    return this.http.get<Post[]>(`${environment.apiBaseUrl}/posts`).pipe(
       catchError((error) => {
         console.error('Error fetching recent posts:', error);
         return throwError('Failed to fetch recent posts. Please try again later.');
@@ -48,7 +48,7 @@ export class PostService {
    * @returns {Observable<any>} An Observable emitting metadata for all posts
    */
   public getAllPosts(): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/postsMetadata`).pipe(
+    return this.http.get(`${environment.apiBaseUrl}/posts`).pipe(
       catchError((error) => {
         console.error('Error fetching all posts:', error);
         return throwError('Failed to fetch all posts. Please try again later.');
@@ -63,7 +63,7 @@ export class PostService {
    * @returns {Observable<any>} An Observable emitting an array of posts with the specified tag
    */
   public getPostsByTag(tag: string): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/postsByTag?tag=${tag}`).pipe(
+    return this.http.get(`${environment.apiBaseUrl}/posts?tag=${tag}`).pipe(
       catchError((error) => {
         console.error('Error fetching posts by tag:', error);
         return throwError('Failed to fetch posts by tag. Please try again later.');
