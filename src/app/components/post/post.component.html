@@ -1,7 +1,7 @@
 <div class="wrapper">
     <article *ngIf="postData && postData.content">
         <h1>{{ postData.title }}</h1>
-        <p class="date">Published on <time>{{ postData.date | date }}</time> &bull; tagged with <a class="tag" *ngFor="let tag of postData.tags" routerLink="/blog/topics/{{ tag }}">#{{ tag }}</a></p>
+        <p class="date">Published on <time>{{ postData.date | date }}</time> &bull; tagged with <a class="tag" *ngFor="let tag of postData.tags" routerLink="/blog/topics/{{ tag.name }}">#{{ tag.name }}</a></p>
         <img *ngIf="postData.thumbnail" src="{{ postData.thumbnail }}" alt="Some alt text">
         <p>{{ postData.preview }}</p>
         <div [innerHTML]="postData.content"></div>

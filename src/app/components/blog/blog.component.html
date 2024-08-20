@@ -11,7 +11,7 @@
           <div class="card-footer">
             <small class="text-muted">
               Published on <time>{{ article.date | date }}</time> &bull; Tagged with:
-              <a class="tag" *ngFor="let tag of article.tags" routerLink="/blog/topics/{{ tag }}">#{{ tag }}</a>
+              <a class="tag" *ngFor="let tag of article.tags" routerLink="/blog/topics/{{ tag.name }}">#{{ tag.name }}</a>
             </small>
           </div>
         </div>
