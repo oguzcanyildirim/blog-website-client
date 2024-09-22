@@ -14,13 +14,15 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagsComponent } from './components/tags/tags.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
     declarations: [
@@ -34,12 +36,14 @@ import { MatInputModule } from '@angular/material/input';
         AboutComponent,
         ContactComponent,
         TagsComponent,
+        LoginComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         RouterModule,
+        FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         MatSliderModule,
