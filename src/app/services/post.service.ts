@@ -77,6 +77,36 @@ export class PostService {
    * @param {string} str The input string to slugify
    * @returns {string} The slugified string
    */
+  /**
+   * Fetches a single post by its ID.
+   *
+   * @param {number} id The ID of the post to fetch
+   * @returns {Observable<any>} An Observable emitting the fetched post data
+   */
+  public getPostById(id: number): Observable<any> {
+    return this.http.get(`${environment.apiBaseUrl}/posts/${id}`).pipe(
+      catchError((error) => {
+        console.error('Error fetching post by id:', error);
+        return throwError('Failed to fetch post. Please try again later.');
+      })
+    );
+  }
+
+  /**
+   * Deletes a post by its ID.
+   *
+   * @param {number} id The ID of the post to delete
+   * @returns {Observable<any>} An Observable emitting the delete response
+   */
+  public deletePost(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiBaseUrl}/posts/${id}`).pipe(
+      catchError((error) => {
+        console.error('Error deleting post:', error);
+        return throwError('Failed to delete post. Please try again later.');
+      })
+    );
+  }
+
   public slugify(str: string): string {
     const regex = new RegExp(/\W+/, 'gm');
     const slug = str.replace(regex, ' ').toLowerCase().split(' ').join('-');

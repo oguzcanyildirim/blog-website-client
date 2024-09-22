@@ -22,8 +22,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AdminDashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
     declarations: [
@@ -39,6 +43,7 @@ import { RegisterComponent } from './components/register/register.component';
         TagsComponent,
         LoginComponent,
         RegisterComponent,
+        AdminDashboardComponent,
     ],
     imports: [
         BrowserModule,
@@ -55,6 +60,7 @@ import { RegisterComponent } from './components/register/register.component';
     ],
     providers: [
         PostService,
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     ],
     bootstrap: [AppComponent]
 })
