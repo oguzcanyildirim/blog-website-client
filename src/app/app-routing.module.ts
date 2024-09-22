@@ -8,6 +8,10 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TagsComponent } from './components/tags/tags.component';
 
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'blog', component: BlogComponent },
@@ -15,6 +19,8 @@ const routes: Routes = [
     { path: 'blog/topics/:tag', component: TagsComponent },
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     { path: '**', component: NotfoundComponent }
 ];
 
