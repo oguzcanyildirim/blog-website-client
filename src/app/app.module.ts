@@ -27,6 +27,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminDashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { PostEditorComponent } from './components/admin/post-editor/post-editor.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
@@ -44,6 +45,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
         LoginComponent,
         RegisterComponent,
         AdminDashboardComponent,
+        PostEditorComponent,
     ],
     imports: [
         BrowserModule,

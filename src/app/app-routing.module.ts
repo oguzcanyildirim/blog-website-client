@@ -11,6 +11,7 @@ import { TagsComponent } from './components/tags/tags.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminDashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { PostEditorComponent } from './components/admin/post-editor/post-editor.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+    { path: 'admin/new-post', component: PostEditorComponent, canActivate: [AuthGuard] },
+    { path: 'admin/edit/:id', component: PostEditorComponent, canActivate: [AuthGuard] },
     { path: '**', component: NotfoundComponent }
 ];
 

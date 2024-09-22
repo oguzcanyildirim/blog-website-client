@@ -107,6 +107,37 @@ export class PostService {
     );
   }
 
+  /**
+   * Creates a new post.
+   *
+   * @param {any} post The post data to create
+   * @returns {Observable<any>} An Observable emitting the created post
+   */
+  public createPost(post: any): Observable<any> {
+    return this.http.post(`${environment.apiBaseUrl}/posts`, post).pipe(
+      catchError((error) => {
+        console.error('Error creating post:', error);
+        return throwError('Failed to create post. Please try again later.');
+      })
+    );
+  }
+
+  /**
+   * Updates an existing post by its ID.
+   *
+   * @param {number} id The ID of the post to update
+   * @param {any} post The updated post data
+   * @returns {Observable<any>} An Observable emitting the updated post
+   */
+  public updatePost(id: number, post: any): Observable<any> {
+    return this.http.put(`${environment.apiBaseUrl}/posts/${id}`, post).pipe(
+      catchError((error) => {
+        console.error('Error updating post:', error);
+        return throwError('Failed to update post. Please try again later.');
+      })
+    );
+  }
+
   public slugify(str: string): string {
     const regex = new RegExp(/\W+/, 'gm');
     const slug = str.replace(regex, ' ').toLowerCase().split(' ').join('-');

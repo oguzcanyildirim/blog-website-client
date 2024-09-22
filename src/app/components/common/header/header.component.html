@@ -10,6 +10,9 @@
             <li><a [routerLink]="nav.blog">Blog</a></li>
             <li><a [routerLink]="nav.about">About</a></li>
             <li><a [routerLink]="nav.contact">Contact</a></li>
+            <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
+            <li *ngIf="authService.isLoggedIn() && authService.isAdmin()"><a routerLink="/admin">Admin</a></li>
+            <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout()" class="logout-link">Logout</a></li>
         </ul>
     </div>
 </nav>

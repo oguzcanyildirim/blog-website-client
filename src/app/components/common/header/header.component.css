@@ -57,6 +57,10 @@ nav ul li a:hover {
     background: inherit !important;
 }
 
+.logout-link {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 550px) {
     .wrapper {
         flex-direction: column;
