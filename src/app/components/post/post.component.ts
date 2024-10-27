@@ -3,7 +3,7 @@ import { PostService } from 'src/app/services/post.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommentListComponent } from '../comments/comment-list/comment-list.component';
-import { Post } from 'src/app/entities/post';
+import { Post, Tag } from 'src/app/entities/post';
 
 @Component({
     selector: 'app-post',
@@ -41,9 +41,9 @@ export class PostComponent implements OnInit {
 
         const slug = this.route.snapshot.params['post'];
 
-        this.postService.getPost(slug).subscribe((response: any) => {
+        this.postService.getPost(slug).subscribe((response: Post) => {
             this.postData = response;
-            this.tags = response.tags.map((t: any) => t.name);
+            this.tags = response.tags.map((t: Tag) => t.name);
             this.pos = allPosts.map((p: Post) => p.slug).indexOf(response.slug);
         });
 

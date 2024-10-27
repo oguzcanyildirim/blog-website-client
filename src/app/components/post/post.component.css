@@ -63,6 +63,26 @@ article img {
     background: inherit;
 }
 
+.comments-section {
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.comments-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.login-prompt {
+    color: #666;
+    font-size: .9rem;
+}
+
+.login-prompt a {
+    color: var(--link-accessible);
+}
+
 @media screen and (max-width: 550px) {
     .wrapper {
         margin: .25rem auto 1.5rem auto;
