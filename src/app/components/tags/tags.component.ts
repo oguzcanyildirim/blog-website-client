@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from 'src/app/entities/post';
 
 @Component({
     selector: 'app-tags',
@@ -9,17 +10,15 @@ import { Router } from '@angular/router';
 })
 export class TagsComponent implements OnInit {
 
-    postsWithTag: any = [];
+    postsWithTag: Post[] = [];
     tag = '';
 
-    // re render postsWithTag when tag permalink is clicked on /blog/category/:tag page
-    constructor(private postService: PostService, private router: Router) { }
+    constructor(private postService: PostService, private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-    // grab tag from URL `/blog/topics/:tag`
-        this.tag = window.location.pathname.substr(13);
-        this.postService.getPostsByTag(this.tag).subscribe((response: any) => {
-            response.forEach((r: any) => {
+        this.tag = this.route.snapshot.params['tag'];
+        this.postService.getPostsByTag(this.tag).subscribe((response: Post[]) => {
+            response.forEach((r: Post) => {
                 r.slug = this.postService.slugify(r.title);
             });
             this.postsWithTag = response;
@@ -35,8 +34,8 @@ export class TagsComponent implements OnInit {
     }
 
     refresh(tag: string) {
-        this.postService.getPostsByTag(tag).subscribe((response: any) => {
-            response.map((r: any) => {
+        this.postService.getPostsByTag(tag).subscribe((response: Post[]) => {
+            response.map((r: Post) => {
                 r.slug = this.slugify(r.title);
             });
             this.postsWithTag = response;
