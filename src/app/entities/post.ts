@@ -9,5 +9,7 @@ export interface Post {
   slug: string;
   date: Date;
   preview: string;
+  content?: string;
+  thumbnail?: string;
   tags: Tag[];
 }
