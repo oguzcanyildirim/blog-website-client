@@ -10,4 +10,12 @@
         <button (click)="prevPost(allPosts)">Previous</button>
         <button (click)="nextPost(allPosts)">Next</button>
     </div>
+    <div class="comments-section" *ngIf="postData && postData.id">
+        <h2>Comments</h2>
+        <app-comment-form *ngIf="authService.isLoggedIn()" [postId]="postData.id" (commentAdded)="onCommentAdded()"></app-comment-form>
+        <p *ngIf="!authService.isLoggedIn()" class="login-prompt">
+            <a routerLink="/login">log in</a> to leave a comment
+        </p>
+        <app-comment-list [postId]="postData.id" #commentList></app-comment-list>
+    </div>
 </div>

@@ -1,0 +1,11 @@
+<div class="comment-list">
+  <div class="comment" *ngFor="let comment of comments">
+    <div class="comment-header">
+      <span class="comment-author">{{ comment.author?.username }}</span>
+      <span class="comment-date">{{ comment.createdAt | date }}</span>
+      <button *ngIf="canDelete(comment)" class="delete-btn" (click)="deleteComment(comment.id)">delete</button>
+    </div>
+    <p class="comment-body">{{ comment.content }}</p>
+  </div>
+  <p *ngIf="comments.length === 0" class="no-comments">No comments yet.</p>
+</div>

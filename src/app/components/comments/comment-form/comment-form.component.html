@@ -1,0 +1,4 @@
+<div class="comment-form">
+  <textarea [(ngModel)]="content" placeholder="Write a comment..." rows="3"></textarea>
+  <button (click)="submit()" [disabled]="!content.trim()">Post comment</button>
+</div>

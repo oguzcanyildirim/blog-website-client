@@ -29,6 +29,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdminDashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { PostEditorComponent } from './components/admin/post-editor/post-editor.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
+import { CommentFormComponent } from './components/comments/comment-form/comment-form.component';
 
 @NgModule({
     declarations: [
@@ -46,6 +48,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
         RegisterComponent,
         AdminDashboardComponent,
         PostEditorComponent,
+        CommentListComponent,
+        CommentFormComponent,
     ],
     imports: [
         BrowserModule,

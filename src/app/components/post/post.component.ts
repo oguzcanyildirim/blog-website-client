@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { CommentListComponent } from '../comments/comment-list/comment-list.component';
 
 @Component({
     selector: 'app-post',
@@ -13,8 +15,9 @@ export class PostComponent implements OnInit {
     tags: string[] = [];
     pos = 0;
     updatePage: any = {};
+    @ViewChild('commentList') commentList!: CommentListComponent;
 
-    constructor(private postService: PostService, private router: Router) { }
+    constructor(private postService: PostService, private router: Router, public authService: AuthService) { }
 
     ngOnInit(): void {
         this.postService.getAllPosts().subscribe((response: any) => {
@@ -69,6 +72,10 @@ export class PostComponent implements OnInit {
             }
         });
         this.router.navigate([`/blog/${p.slug}`]);
+    }
+
+    onCommentAdded(): void {
+        this.commentList.loadComments();
     }
 
 }
