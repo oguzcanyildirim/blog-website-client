@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 import { Post } from '../entities/post';
 
 @Injectable({
@@ -134,6 +135,32 @@ export class PostService {
       catchError((error) => {
         console.error('Error updating post:', error);
         return throwError('Failed to update post. Please try again later.');
+      })
+    );
+  }
+
+  /**
+   * Fetches a paginated list of posts.
+   *
+   * @param page The page number (1-based)
+   * @param limit The number of posts per page
+   * @returns An Observable emitting posts and total count
+   */
+  public getPostsPaginated(page: number, limit: number): Observable<{ posts: Post[], total: number }> {
+    return this.http.get<Post[]>(
+      `${environment.apiBaseUrl}/posts?page=${page}&limit=${limit}`,
+      { observe: 'response' }
+    ).pipe(
+      map((response: HttpResponse<Post[]>) => {
+        const totalHeader = response.headers.get('x-total-count');
+        return {
+          posts: response.body || [],
+          total: totalHeader ? parseInt(totalHeader, 10) : 0
+        };
+      }),
+      catchError((error) => {
+        console.error('Error fetching paginated posts:', error);
+        return throwError('Failed to fetch posts. Please try again later.');
       })
     );
   }

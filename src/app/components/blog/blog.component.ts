@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/entities/post';
 import { PostService } from 'src/app/services/post.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
     selector: 'app-blog',
@@ -10,6 +11,9 @@ import { PostService } from 'src/app/services/post.service';
 export class BlogComponent implements OnInit {
 
     articles: Post[] = [];
+    totalPosts = 0;
+    currentPage = 1;
+    pageSize = 5;
 
     constructor(private postService: PostService) { }
 
@@ -17,16 +21,22 @@ export class BlogComponent implements OnInit {
         this.loadArticles();
     }
 
-    loadArticles(): void {
-      this.postService.getAllPosts().subscribe((response: Post[]) => {
-          this.articles = response;
+    loadArticles(page: number = 1): void {
+      this.postService.getPostsPaginated(page, this.pageSize).subscribe(
+        (result) => {
+          this.articles = result.posts;
+          this.totalPosts = result.total;
+          this.currentPage = page;
           this.mapArticlesToSlugs();
         },
         (error: any) => {
           console.error('Error fetching blog posts:', error);
-          // Handle error or show user-friendly message
         }
       );
+    }
+
+    onPageChange(event: PageEvent): void {
+      this.loadArticles(event.pageIndex + 1);
     }
 
     mapArticlesToSlugs(): void {

@@ -18,4 +18,10 @@
       </div>
     </div>
   </section>
+  <mat-paginator
+    [length]="totalPosts"
+    [pageSize]="pageSize"
+    [hidePageSize]="true"
+    (page)="onPageChange($event)">
+  </mat-paginator>
 </div>

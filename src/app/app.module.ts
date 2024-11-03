@@ -21,6 +21,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -63,6 +64,7 @@ import { CommentFormComponent } from './components/comments/comment-form/comment
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
+        MatPaginatorModule,
     ],
     providers: [
         PostService,
