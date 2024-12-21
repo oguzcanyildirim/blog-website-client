@@ -1,5 +1,13 @@
 <div class="wrapper">
   <h1>Blog</h1>
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="search posts..."
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchInput($event)">
+    <button *ngIf="searchTerm" (click)="clearSearch()">clear</button>
+  </div>
   <section>
     <div class="row">
       <div class="col-md-6 col-lg-4 mb-4" *ngFor="let article of articles">
@@ -18,7 +26,7 @@
       </div>
     </div>
   </section>
-  <mat-paginator
+  <mat-paginator *ngIf="!isSearching"
     [length]="totalPosts"
     [pageSize]="pageSize"
     [hidePageSize]="true"

@@ -165,6 +165,21 @@ export class PostService {
     );
   }
 
+  /**
+   * Searches posts by a query term.
+   *
+   * @param term The search query
+   * @returns An Observable emitting matching posts
+   */
+  public searchPosts(term: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`${environment.apiBaseUrl}/posts/search?q=${term}`).pipe(
+      catchError((error) => {
+        console.error('Error searching posts:', error);
+        return throwError('Failed to search posts. Please try again later.');
+      })
+    );
+  }
+
   public slugify(str: string): string {
     const regex = new RegExp(/\W+/, 'gm');
     const slug = str.replace(regex, ' ').toLowerCase().split(' ').join('-');
