@@ -67,10 +67,19 @@ mat-card {
     font-size: .9rem;
 }
 
+.search-box input:focus {
+    outline: none;
+    border-color: #888;
+}
+
 .search-box button {
     padding: .5rem .75rem;
     border: 1px solid #ccc;
     background: inherit;
     border-radius: .25rem;
     cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #eee;
 }
