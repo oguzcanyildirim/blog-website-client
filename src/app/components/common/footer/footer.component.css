@@ -110,3 +110,19 @@ footer .row {
     justify-content: center;
     margin: 1rem auto;
 }
+
+@media screen and (max-width: 768px) {
+    .footer-nav {
+        flex-direction: column;
+        gap: .25rem;
+    }
+
+    .copyright {
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .copyright button {
+        margin-left: 0;
+    }
+}

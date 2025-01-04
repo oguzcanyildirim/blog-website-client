@@ -83,8 +83,33 @@ article img {
     color: var(--link-accessible);
 }
 
+::ng-deep article .body pre {
+    overflow-x: auto;
+}
+
+::ng-deep article .body img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    article h1 {
+        font-size: 1.75rem;
+    }
+
+    .post-btns {
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .post-btns button {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 550px) {
     .wrapper {
         margin: .25rem auto 1.5rem auto;
+        padding: .5rem;
     }
 }
