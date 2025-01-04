@@ -5,14 +5,15 @@
                 <span>Oguz</span>
             </a>
         </div>
-        <ul class="nav-links">
-            <li><a [routerLink]="nav.home">Home</a></li>
-            <li><a [routerLink]="nav.blog">Blog</a></li>
-            <li><a [routerLink]="nav.about">About</a></li>
-            <li><a [routerLink]="nav.contact">Contact</a></li>
-            <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login">Login</a></li>
-            <li *ngIf="authService.isLoggedIn() && authService.isAdmin()"><a routerLink="/admin">Admin</a></li>
-            <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout()" class="logout-link">Logout</a></li>
+        <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+        <ul class="nav-links" [class.open]="menuOpen">
+            <li><a [routerLink]="nav.home" (click)="menuOpen = false">Home</a></li>
+            <li><a [routerLink]="nav.blog" (click)="menuOpen = false">Blog</a></li>
+            <li><a [routerLink]="nav.about" (click)="menuOpen = false">About</a></li>
+            <li><a [routerLink]="nav.contact" (click)="menuOpen = false">Contact</a></li>
+            <li *ngIf="!authService.isLoggedIn()"><a routerLink="/login" (click)="menuOpen = false">Login</a></li>
+            <li *ngIf="authService.isLoggedIn() && authService.isAdmin()"><a routerLink="/admin" (click)="menuOpen = false">Admin</a></li>
+            <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout(); menuOpen = false" class="logout-link">Logout</a></li>
         </ul>
     </div>
 </nav>

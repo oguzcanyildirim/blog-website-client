@@ -11,9 +11,15 @@ import { AuthService } from '../../../services/auth.service';
 export class HeaderComponent implements OnInit {
 
     public nav: NavLinks = navLinks;
+    public menuOpen = false;
+
     constructor(public authService: AuthService) { }
 
     ngOnInit(): void {
+    }
+
+    toggleMenu(): void {
+      this.menuOpen = !this.menuOpen;
     }
 
 }

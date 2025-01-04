@@ -83,3 +83,13 @@ mat-card {
 .search-box button:hover {
     background-color: #eee;
 }
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: .5rem;
+    }
+
+    .wrapper h1 {
+        font-size: 1.75rem;
+    }
+}
