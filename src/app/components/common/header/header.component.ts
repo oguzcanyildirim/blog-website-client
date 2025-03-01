@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { navLinks } from '../constants';
 import { NavLinks } from '../interfaces';
 import { AuthService } from '../../../services/auth.service';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
     selector: 'app-header',
@@ -13,7 +14,10 @@ export class HeaderComponent implements OnInit {
     public nav: NavLinks = navLinks;
     public menuOpen = false;
 
-    constructor(public authService: AuthService) { }
+    constructor(
+      public authService: AuthService,
+      public themeService: ThemeService
+    ) { }
 
     ngOnInit(): void {
     }
