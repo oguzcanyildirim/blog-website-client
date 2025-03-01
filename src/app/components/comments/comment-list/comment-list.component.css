@@ -4,7 +4,7 @@
 
 .comment {
   padding: .75rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .comment:last-child {
@@ -16,16 +16,19 @@
   align-items: center;
   gap: .5rem;
   font-size: .85rem;
-  color: #666;
+  color: var(--text-color);
+  opacity: .7;
 }
 
 .comment-author {
   font-weight: 600;
-  color: #333;
+  color: var(--text-color);
+  opacity: 1;
 }
 
 .comment-date {
-  color: #999;
+  color: var(--text-color);
+  opacity: .6;
 }
 
 .delete-btn {
@@ -49,6 +52,7 @@
 }
 
 .no-comments {
-  color: #999;
+  color: var(--text-color);
+  opacity: .6;
   font-size: .9rem;
 }

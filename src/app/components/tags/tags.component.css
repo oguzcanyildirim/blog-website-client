@@ -15,7 +15,7 @@ section {
 article {
     border: .125rem solid transparent;
     padding: 1rem;
-    background: #fff;
+    background: var(--card-bg);
     margin: 2rem 0;
 }
 

@@ -2,7 +2,7 @@
     max-width: 75ch;
     margin: 2rem auto;
     padding: 1rem;
-    background-color: rgb(246, 246, 246);
+    background-color: var(--bg-color);
 }
 
 .wrapper h1 {
@@ -16,7 +16,7 @@
 section article {
     margin: 2rem auto;
     border: .125rem solid transparent;
-    background: #fff;
+    background: var(--card-bg);
     padding: 1rem;
 }
 
@@ -62,9 +62,11 @@ mat-card {
 .search-box input {
     flex: 1;
     padding: .5rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: .25rem;
     font-size: .9rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
 }
 
 .search-box input:focus {
@@ -74,14 +76,15 @@ mat-card {
 
 .search-box button {
     padding: .5rem .75rem;
-    border: 1px solid #ccc;
-    background: inherit;
+    border: 1px solid var(--input-border);
+    background: var(--card-bg);
     border-radius: .25rem;
     cursor: pointer;
+    color: var(--text-color);
 }
 
 .search-box button:hover {
-    background-color: #eee;
+    background-color: var(--card-border);
 }
 
 @media screen and (max-width: 768px) {

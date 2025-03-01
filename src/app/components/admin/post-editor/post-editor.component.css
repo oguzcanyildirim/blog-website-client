@@ -6,7 +6,7 @@
 
 .editor-container h2 {
   margin-bottom: 1.5rem;
-  color: #222;
+  color: var(--text-color);
 }
 
 .form-group {
@@ -16,7 +16,7 @@
 .form-group label {
   display: block;
   margin-bottom: 0.25rem;
-  color: #444;
+  color: var(--text-color);
   font-size: 0.9rem;
 }
 
@@ -24,17 +24,19 @@
 .form-group textarea {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-size: 1rem;
   font-family: inherit;
   box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--text-color);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #555;
+  border-color: var(--link-accessible);
 }
 
 .form-actions {
@@ -46,7 +48,7 @@
 
 .form-actions button {
   padding: 0.6rem 1.5rem;
-  background: #222;
+  background: var(--link-accessible);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -55,13 +57,14 @@
 }
 
 .form-actions button:hover {
-  background: #444;
+  opacity: .85;
 }
 
 .cancel-link {
-  color: #666;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 0.9rem;
+  opacity: .7;
 }
 
 .cancel-link:hover {

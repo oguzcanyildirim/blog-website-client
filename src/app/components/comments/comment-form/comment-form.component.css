@@ -8,26 +8,29 @@
 .comment-form textarea {
   width: 100%;
   padding: .5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-family: inherit;
   font-size: .95rem;
   resize: vertical;
   box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--text-color);
 }
 
 .comment-form textarea:focus {
   outline: none;
-  border-color: #666;
+  border-color: var(--link-accessible);
 }
 
 .comment-form button {
   align-self: flex-end;
   padding: .4rem .8rem;
-  border: 1px solid #282d33;
-  background-color: inherit;
+  border: 1px solid var(--input-border);
+  background-color: var(--card-bg);
   cursor: pointer;
   font-size: .85rem;
+  color: var(--text-color);
 }
 
 .comment-form button:disabled {
@@ -36,5 +39,5 @@
 }
 
 .comment-form button:hover:not(:disabled) {
-  background-color: #f5f5f5;
+  background-color: var(--card-border);
 }

@@ -12,13 +12,13 @@
 }
 
 .dashboard-header h2 {
-  color: #222;
+  color: var(--text-color);
   margin: 0;
 }
 
 .new-post-btn {
   padding: 0.5rem 1rem;
-  background: #222;
+  background: var(--link-accessible);
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -26,7 +26,7 @@
 }
 
 .new-post-btn:hover {
-  background: #444;
+  opacity: .85;
 }
 
 .post-item {
@@ -34,17 +34,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .post-info h3 {
   margin: 0 0 0.25rem 0;
-  color: #222;
+  color: var(--text-color);
   font-size: 1.1rem;
 }
 
 .post-date {
-  color: #888;
+  color: var(--text-color);
+  opacity: .6;
   font-size: 0.85rem;
 }
 
@@ -55,21 +56,21 @@
 
 .edit-btn {
   padding: 0.35rem 0.75rem;
-  background: #f5f5f5;
-  color: #222;
+  background: var(--card-bg);
+  color: var(--text-color);
   text-decoration: none;
   border-radius: 4px;
   font-size: 0.85rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--card-border);
 }
 
 .edit-btn:hover {
-  background: #eee;
+  background: var(--card-border);
 }
 
 .delete-btn {
   padding: 0.35rem 0.75rem;
-  background: #fff;
+  background: var(--card-bg);
   color: #d32f2f;
   border: 1px solid #d32f2f;
   border-radius: 4px;
@@ -78,11 +79,12 @@
 }
 
 .delete-btn:hover {
-  background: #fce4ec;
+  opacity: .85;
 }
 
 .no-posts {
-  color: #888;
+  color: var(--text-color);
+  opacity: .6;
   text-align: center;
   padding: 2rem 0;
 }

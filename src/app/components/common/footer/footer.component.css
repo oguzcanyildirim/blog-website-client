@@ -1,12 +1,8 @@
 footer {
-    background: #242729;
-    background: inherit;
-    /* background: #1b1c1d; */
-    /* background: #f7f7f7;
-    background: rgb(248, 248, 248); */
-    border-top: .1rem solid lightgray;
+    background: var(--footer-bg);
+    border-top: .1rem solid var(--footer-border);
     padding: 1rem 1rem 1.5rem 1rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 footer .wrapper {
@@ -35,16 +31,11 @@ footer .row {
 .row ul li a {
     padding: .5rem;
     margin: 0 .25rem;
-    color: #222;
-    /* color: #ddd;
-    color: rgba(255,255,255,.92); */
+    color: var(--text-color);
     text-decoration: none;
 }
 
 .row ul li a:hover {
-    color: #fff;
-    color: #ddd;
-    color: #333;
     text-decoration: underline;
 }
 
@@ -55,9 +46,7 @@ footer .row {
 
 .row div h3 {
     margin-bottom: 0;
-    color: #333;
-    /* color: #ddd;
-    color: rgba(255,255,255,.92); */
+    color: var(--text-color);
 }
 
 .copyright {
@@ -69,22 +58,16 @@ footer .row {
 }
 
 .copyright a {
-    color: #ddd;
-    color: rgba(255,255,255,.92);
-    color: #222;
+    color: var(--text-color);
 }
 
 .copyright a:hover {
     text-decoration: none;
-    color: #fff;
-    color: #333;
 }
 
 .copyright p {
     margin: 0;
-    color: #ddd;
-    color: rgba(255,255,255,.92);
-    color: #222;
+    color: var(--text-color);
 }
 
 .copyright button {
