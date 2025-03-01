@@ -29,9 +29,6 @@ section form textarea {
 }
 
 .submit button {
-    background: #fff;
-    background: #378ad3;
-    background: #3ca4ff;
     background: var(--btn-primary);
     border: none;
     padding: .75rem 2rem;
@@ -40,8 +37,7 @@ section form textarea {
 }
 
 .submit button:hover {
-    background: #378ad3;
-    background: #3d82f1;
+    opacity: .85;
     cursor: pointer;
 }
 

@@ -1,9 +1,9 @@
 header {
     padding: 5rem 1rem 4rem 1rem;
-    background: var(--header-bg);
+    background: #202429;
     text-align: center;
     margin: 0 auto;
-    color: var(--text-color);
+    color: #fff;
     border-bottom: .1rem solid var(--footer-border);
 }
 
