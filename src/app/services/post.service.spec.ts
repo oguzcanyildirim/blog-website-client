@@ -35,7 +35,7 @@ describe('PostService', () => {
       expect(data).toEqual(mockPost);
     });
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/post?name=${slug}`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts/by-slug/${slug}`);
     expect(req.request.method).toEqual('GET');
     req.flush(mockPost);
   });
@@ -49,18 +49,18 @@ describe('PostService', () => {
       }
     );
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/post?name=${slug}`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts/by-slug/${slug}`);
     req.error(new ErrorEvent('Network error'));
   });
 
   it('should fetch recent posts', () => {
-    const mockRecentPosts = [{ title: 'Post 1' }, { title: 'Post 2' }];
+    const mockRecentPosts: any[] = [{ title: 'Post 1' }, { title: 'Post 2' }];
 
     postService.getRecentPosts().subscribe((data) => {
       expect(data).toEqual(mockRecentPosts);
     });
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/recentPosts`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts`);
     expect(req.request.method).toEqual('GET');
     req.flush(mockRecentPosts);
   });
@@ -72,7 +72,7 @@ describe('PostService', () => {
       }
     );
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/recentPosts`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts`);
     req.error(new ErrorEvent('Network error'));
   });
 
@@ -83,7 +83,7 @@ describe('PostService', () => {
       expect(data).toEqual(mockPostsMetadata);
     });
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/postsMetadata`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts`);
     expect(req.request.method).toEqual('GET');
     req.flush(mockPostsMetadata);
   });
@@ -96,7 +96,7 @@ describe('PostService', () => {
       }
     );
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/postsMetadata`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts`);
     req.error(new ErrorEvent('Network error'));
   });
 
@@ -108,7 +108,7 @@ describe('PostService', () => {
       expect(data).toEqual(mockPostsByTag);
     });
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/postsByTag?tag=${tag}`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts?tag=${tag}`);
     expect(req.request.method).toEqual('GET');
     req.flush(mockPostsByTag);
   });
@@ -123,7 +123,7 @@ describe('PostService', () => {
       }
     );
 
-    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/postsByTag?tag=${tag}`);
+    const req = httpTestingController.expectOne(`${environment.apiBaseUrl}/posts?tag=${tag}`);
     req.error(new ErrorEvent('Network error'));
   });
 
