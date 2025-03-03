@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './components/post/post.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PostService } from './services/post.service';
 import { BlogComponent } from './components/blog/blog.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/common/header/header.component';
@@ -17,7 +16,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagsComponent } from './components/tags/tags.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -60,14 +58,12 @@ import { CommentFormComponent } from './components/comments/comment-form/comment
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        MatSliderModule,
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         MatPaginatorModule,
     ],
     providers: [
-        PostService,
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     ],
     bootstrap: [AppComponent]
